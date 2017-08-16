@@ -1,0 +1,415 @@
+@import "vendor/bootstrap-grid/grid.css";
+@import "variables.scss";
+
+@font-face {
+  font-family: 'ProximaNova';
+  font-weight: 100;
+
+  src: url('./fonts/proximaNova/308666_E_0.eot');
+  src: url('./fonts/proximaNova/308666_E_0.eot?#iefix') format('embedded-opentype'), url('./fonts/proximaNova/308666_E_0.woff2') format('woff2'), url('./fonts/proximaNova/308666_E_0.woff') format('woff'), url('./fonts/proximaNova/308666_E_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  font-weight: 300;
+
+  src: url('./fonts/proximaNova/308666_5_0.eot');
+  src: url('./fonts/proximaNova/308666_5_0.eot?#iefix') format('embedded-opentype'), url('./fonts/proximaNova/308666_5_0.woff2') format('woff2'), url('./fonts/proximaNova/308666_5_0.woff') format('woff'), url('./fonts/proximaNova/308666_5_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  font-weight: 400;
+
+  src: url('./fonts/proximaNova/3078DB_1_0.eot');
+  src: url('./fonts/proximaNova/3078DB_1_0.eot?#iefix') format('embedded-opentype'), url('./fonts/proximaNova/3078DB_1_0.woff2') format('woff2'), url('./fonts/proximaNova/3078DB_1_0.woff') format('woff'), url('./fonts/proximaNova/3078DB_1_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  font-weight: 600;
+
+  src: url('./fonts/proximaNova/3078DB_2_0.eot');
+  src: url('./fonts/proximaNova/3078DB_2_0.eot?#iefix') format('embedded-opentype'), url('./fonts/proximaNova/3078DB_2_0.woff2') format('woff2'), url('./fonts/proximaNova/3078DB_2_0.woff') format('woff'), url('./fonts/proximaNova/3078DB_2_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  font-weight: 700;
+
+  src: url('./fonts/proximaNova/3078DB_0_0.eot');
+  src: url('./fonts/proximaNova/3078DB_0_0.eot?#iefix') format('embedded-opentype'), url('./fonts/proximaNova/3078DB_0_0.woff2') format('woff2'), url('./fonts/proximaNova/3078DB_0_0.woff') format('woff'), url('./fonts/proximaNova/3078DB_0_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  font-weight: 800;
+
+  src: url('./fonts/proximaNova/308666_2_0.eot');
+  src: url('./fonts/proximaNova/308666_2_0.eot?#iefix') format('embedded-opentype'), url('./fonts/proximaNova/308666_2_0.woff2') format('woff2'), url('./fonts/proximaNova/308666_2_0.woff') format('woff'), url('./fonts/proximaNova/308666_2_0.ttf') format('truetype');
+}
+
+html, body {
+	background-color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+	font-family: ProximaNova, Helvetica, Verdana, sans-serif;
+  font-size: 12px;
+}
+
+.fixedHeader {
+	position: fixed;
+	height: 70px;
+	width: 100%;
+	z-index: 1000;
+}
+
+.materialButton {
+	border-radius: 0 !important;
+
+	button {
+		border-radius: 0 !important;
+	}
+}
+
+.stepperButton {
+	color: $primaryColor;
+	cursor: pointer;
+
+	&:hover {
+		background-color: transparent !important;
+	}
+
+	path{
+  	fill: $primaryColor;
+  	margin-top: 2px;
+	}
+}
+
+.controlPanel {
+  background-color: $grayBack;
+	height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  width: 70px;
+
+  .logoContainer {
+  	background-color: $primaryColor;
+  	cursor: pointer;
+  	display: block;
+  	height: 69px;
+
+  	.logo {
+  		background: none;
+  		margin: 15px;
+  		width: 40px;
+  	}
+
+		&:hover {
+  		opacity: 0.8;
+		}
+  }
+
+	.betaIcon:after {
+    background: #666;
+	  content: "BETA";
+    color: #fff;
+	  display: block;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    padding: 5px 0 3px 0;
+    text-align: center;
+	  width: 100%;
+	}
+
+	.avatar {
+	  bottom: 15px;
+	  cursor: pointer;
+	  margin: auto;
+	  overflow-wrap: break-word;
+	  position: absolute;
+	  text-align:center;
+	  width: 100%;
+
+	  button {
+	  	padding: 0 !important;
+	  }
+
+	  .initials {
+	  	background-color: $grayBack !important;
+	  	color: $grayText !important;
+		  border: 1px solid $grayText;
+		  font-weight: 400;
+		  font-size: 18px !important;
+	  }
+	}
+}
+
+.home {
+  min-height: 100vh;
+	margin-left: 70px;
+
+	.homeHeader {
+		background-color: #fff;
+
+		.title {
+			font-size: 18px;
+			font-weight: 800;
+			line-height: 70px;
+			padding: 0 28px;
+		}
+
+		.buttonContainer {
+    	position: absolute;
+    	right: 99px;
+			top: 18px;
+
+			.create-dashboard {
+				span {
+					text-transform: none !important;
+				}
+
+				svg {
+					margin-top: -3px !important;
+				}
+			}
+		}
+	}
+
+	.homeGrid {
+		padding: 70px 14px;
+	  text-align: left;
+
+	  .dashboardCard {
+		  background-color: white;
+		  border: 1px solid #ccc;
+		  display: inline-block;
+		  flex: 0 0 calc(100% - 28px);
+		  height: 200px !important;
+		  margin: 14px auto;
+		  max-width: 400px;
+		  overflow: hidden;
+		  position: relative;
+		  transition: box-shadow 0.2s ease-out;
+
+		  &:hover {
+		    box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.2);
+		    cursor: pointer;
+
+		    .imgFirstRow {
+		      pointer-events: none;
+		    }
+		  }
+
+		  .image {
+		  	background-color: $primaryColor;
+		  	height: 140px;
+		  	text-align: center;
+
+		  	.cover {
+				  position: absolute;
+				  height: 100%;
+				  width: 100%;
+				  background-repeat: no-repeat;
+				  background-position: center;
+				  opacity: .8;
+		  	}
+
+		  	.view {
+			    opacity: 0;
+			    border: 1px solid #fff;
+			    color: #fff;
+			    display: inline-block;
+			    font-size: 14px;
+			    font-weight: 400;
+			    letter-spacing: 1.5px;
+			    margin: auto;
+			    margin-top: 50px;
+			    padding: 8px 20px;
+		  	}
+
+		  	&:hover {
+		  		.cover {
+		  		  opacity: .1;
+						cursor: pointer;
+		  		}
+
+		  		.view {
+		  			opacity: 1;
+		  		}
+		  	}
+		  }
+
+		  .title {
+		  	color: #000;
+		  	padding-top: 10px;
+		  }
+
+		  .details {
+		  	color: $grayText;
+		  	font-size: 11px;
+		  	font-weight: 400;
+		  	line-height: 24px;
+		  }
+		}
+
+		// 1 column
+		@media screen and (min-width: $break480) {
+		  .dashboardCard {
+		    flex: 0 0 calc(100% - 28px);
+		  }
+		}
+
+		// 2 columns
+		@media screen and (min-width: $break790) {
+		  .dashboardCard {
+		    flex: 0 0 calc(50% - 28px);
+		    margin: 14px;
+		    max-width: 100%;
+		  }
+		}
+
+		// 3 columns
+		@media screen and (min-width: $break1150) {
+		  .dashboardCard {
+		    flex: 0 0 calc(33.33333% - 28px);
+		  }
+		}
+
+		// 4 columns
+		@media screen and (min-width: $break1510) {
+		  .dashboardCard {
+		    flex: 0 0 calc(25% - 28px);
+		  }
+		}
+
+		// 5 columns
+		@media screen and (min-width: $break1870) {
+		  .dashboardCard {
+		    flex: 0 0 calc(20% - 28px);
+		  }
+		}
+	}
+}
+
+.dashboard {
+  min-height: 100vh;
+
+  .edit {
+		margin-left: 70px;
+  }
+
+	.dashboardHeader {
+		border-bottom: 1px solid #ccc;
+    color: $primaryColor;
+    display: table-row-group;
+    float: left;
+    font-size: 14px;
+    font-weight: 700;
+    font-smoothing: antialiased;
+    line-height: 55px;
+    padding: 10px 15px 0 15px;
+		width: 100%;
+
+		span {
+      display: table-cell;
+      vertical-align: middle;
+      height: 40px;
+    }
+
+		.entityName {
+      line-height: 22px;
+      overflow: hidden;
+      padding-right: 15px;
+      text-align: left;
+      text-overflow: ellipsis;
+      width:100%;
+		}
+
+		.title {
+			font-size: 18px;
+			font-weight: 800;
+			line-height: 70px;
+			padding: 0 28px;
+		}
+
+		.buttonContainer {
+    	position: absolute;
+    	right: 99px;
+			top: 18px;
+
+			.createDashboard {
+				span {
+					text-transform: none !important;
+				}
+
+				svg {
+					margin-top: -3px !important;
+				}
+			}
+		}
+	}
+
+	.dashboardGrid {
+		padding-top: 70px;
+		margin-left: 70px;
+	}
+}
+
+.modalDialog {
+  padding-top: 20px !important;
+  padding-bottom: 150px;
+	overflow-y: auto !important;
+
+	>div:first-child>div>div {
+		float: left;
+		width: 100% !important;
+	}
+
+	>div:first-child>div>div>div {
+	  overflow-y: visible !important;
+	  max-height: none !important;
+	}
+}
+
+.divider-text {
+  color: #ccc;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+
+  &:after {
+	  background-color: #ccc;
+	  content: "";
+	  display: inline-block;
+	  height: 0.08em;
+	  margin-bottom: 4px;
+	  position: relative;
+	  vertical-align: middle;
+  	left: 10px;
+  	width: 100%;
+	}
+}
+
+.inputLabel {
+	color: $primaryColor;
+  font-size: 11px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.dataConfig {
+	button {
+		text-transform: none !important;
+	}
+}
+
+.padTop {
+	padding-top: 15px;
+}
