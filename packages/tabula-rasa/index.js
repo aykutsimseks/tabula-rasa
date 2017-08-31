@@ -8,19 +8,7 @@ import { incrementCounter } from './actions/tabulaActions';
 
 import ControlPanel from './components/ControlPanel';
 
-class TabulaRasa extends Component {
-  render() {
-    const { counter, increment } = this.props;
-
-    return (
-      <div>
-        <ControlPanel />
-        <div className="home">
-          <div className="fixedHeader homeHeader">
-            <div className="title" />
-            <div className="buttonContainer" />
-          </div>
-          <div className="homeGrid">
+/*
             <div>
               <a href="/auth/login/facebook">
                 <RaisedButton
@@ -50,6 +38,21 @@ class TabulaRasa extends Component {
               </a>
             </div>
             <br />
+*/
+
+class TabulaRasa extends Component {
+  render() {
+    const { counter, increment } = this.props;
+
+    return (
+      <div>
+        <ControlPanel />
+        <div className="home">
+          <div className="fixedHeader homeHeader">
+            <div className="title" />
+            <div className="buttonContainer" />
+          </div>
+          <div className="homeGrid">
             <RaisedButton
               className="materialButton"
               label={`Increment: ${counter}`}

@@ -1,0 +1,14 @@
+{
+  "name": "altug-firarda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aykut Simsek",
+  "license": "ISC",
+  "dependencies": {
+    "react-leaflet": "^1.5.0"
+  }
+}

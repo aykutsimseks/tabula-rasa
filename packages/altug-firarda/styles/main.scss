@@ -1,0 +1,341 @@
+.info-modal {
+  font-size: 12px;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: #336fa2;
+  }
+}
+
+.altug-firarda {
+	$theme: rgba(51, 122, 183, 1);
+	$theme-alt: #336fa2;
+	$theme-text: #fff;
+	$font-family: Roboto, sans-serif;
+	$panel-width: 320px;
+
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+  font-family: $font-family;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+
+  .visible {
+    display: block !important;
+  }
+
+  .control-panel {
+  	width: $panel-width;
+  	/* max-width: calc(100% - 30px); */
+  	height: 100%;
+
+  	.header-bar {
+  		position: relative;
+  		background-color: $theme;
+  		color: $theme-text;
+  		height: 70px;
+  		padding: 10px 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip ellipsis;
+
+  		.title {
+  			font-size: 18px;
+  			line-height: 24px;
+  			font-weight: 800;
+  		}
+
+  		.dates {
+  			line-height: 34px;
+  			font-size: 13px;
+  		}
+
+  		.nth-day {
+  			position: absolute;
+  			right: 10px;
+  			top: 30px;
+  			line-height: 15px;
+  			font-size: 13px;
+  			text-align: center;
+  		}
+  	}
+
+		.main-content {
+			height: calc(100vh - 125px);
+			overflow-y: auto;
+
+			.instagram-embed {
+        height: 400px;
+        background: url('../../../public/static/img/loading.gif') center center no-repeat;
+        background-size: 200px 150px;
+			}
+
+			.story {
+				padding: 0 10px 10px 10px;
+				line-height: 18px;
+				font-size: 14px;
+
+        a {
+          text-decoration: none;
+          color: $theme;
+        }
+
+        .hastag {
+          color: $theme;
+        }
+			}
+		}
+
+  	.bottom-navigation {
+  		position: absolute;
+  		bottom: 0;
+  		width: $panel-width;
+  		/* max-width: calc(100% - 30px); */
+
+  		> div {
+				background-color: $theme !important;
+  		}
+
+  		button {
+				background: $theme !important;
+				max-width: none !important;
+
+				&:hover {
+					background: $theme-alt !important;
+				};
+			}
+
+  		.bottom-navigation-item {
+
+
+				svg path, div {
+  				color: $theme-text !important;
+  				fill: $theme-text !important;
+				}
+
+  			&:hover {
+  				/*svg path, div {
+	  				color: $theme !important;
+	  				fill: $theme !important;
+  				}*/
+  			}
+  		}
+  	}
+  }
+
+  .map-panel {
+  	.cover {
+  		position: absolute;
+	  	top: 0;
+	  	left: $panel-width;
+		  height: 100vh;
+		  width: calc( 100vw - 320px);
+		  z-index: 400;
+  		background: url('../../../public/static/img/cover.png') no-repeat center center fixed;
+    	background-position: calc(50% + 170px) 50% ;
+    	background-size: cover;
+  		opacity: .8;
+  	}
+
+	  .leaflet-container {
+	  	position: absolute;
+	  	top: 0;
+	  	left: $panel-width;
+		  height: 100vh;
+		  width: calc( 100vw - 320px);
+
+      .leaflet-control-attribution {
+        display: none;
+      }
+
+      .leaflet-right .leaflet-control {
+        margin: 0;
+      }
+
+      .leaflet-bar a:first-child, .leaflet-bar a:last-child {
+        border-radius: 0;
+      }
+		}
+
+
+
+    .awesome-marker {
+      position:absolute;
+      left:0;
+      top:0;
+      display: block;
+      text-align: center;
+    }
+
+    .awesome-marker i {
+      color: #333;
+      margin-top: 10px;
+      display: inline-block;
+      font-size: 18px;
+    }
+  }
+
+  .legend {
+    position: absolute;
+    top: -12px;
+    right: 0;
+    z-index: 500;
+    width: 110px;
+    max-width: 100%;
+    max-height: calc(100vh - 133px);
+    overflow: hidden;
+    font-family: $font-family;
+
+    background-color: rgba(0, 0, 0, .3);
+    padding: 10px 0 5px 5px;
+    list-style: none;
+
+    background-clip: padding-box;
+
+    .legend-item {
+      font-size: 12px;
+      margin: 0px 3px;
+      pointer-events: all;
+      cursor: pointer;
+      float: left;
+      color: #aaa;
+      opacity: 0;
+      transition: all 0.2s linear;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+
+      &:hover, &.active, &.visible {
+        opacity: 1;
+        height: auto;
+        height: 22px;
+
+        .bullet {
+          width: 12px;
+          height: 12px;
+          margin: 1px 6px 6px 0px;
+        }
+      }
+
+      &:hover, &.active {
+        color: #fff;
+      }
+
+      .bullet {
+        float: left;
+        margin: 3px 8px 9px 2px;
+        width: 8px;
+        height: 8px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        padding: 2px;
+        background: #fff;
+        border: none;
+        z-index: 1000;
+        transition: all 0.2s linear;
+      }
+    }
+
+    &:hover {
+      .legend-item {
+        height: 22px;
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      float: left;
+      width: 26px;
+      right: 0px;
+
+      .text {
+        height: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  .language-switch {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    z-index: 500;
+    max-width: 100%;
+    font-family: $font-family;
+    padding: 0;
+
+    list-style: none;
+    background-color: rgba(0, 0, 0, .3);
+
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+
+    .language-item {
+      font-size: 12px;
+      display: none;
+      cursor: pointer;
+      color: #aaa;
+      padding: 4px 6px 2px 8px;
+      text-align: center;
+      line-height: 18px;
+
+      .flag {
+        height: 18px;
+        width: 22px;
+      }
+
+      .text {
+        // vertical-align: 6px;
+        display: none;
+        margin-right: 8px;
+      }
+
+      &.active, &:hover {
+        display: block;
+        color: #fff;
+      }
+    }
+
+    &:hover {
+
+      .language-item {
+        display: block;
+      }
+
+      .text {
+        display: inline-block;
+      }
+    }
+  }
+
+  .polygon {
+    fill: #abc;
+
+    &.q0-3 { fill:rgb(247,251,255); }
+    &.q1-3 { fill:rgb(222,235,247); }
+    &.q2-3 { fill:rgb(198,219,239); }
+
+    &.q0-9 { fill:rgb(247,251,255); }
+    &.q1-9 { fill:rgb(222,235,247); }
+    &.q2-9 { fill:rgb(198,219,239); }
+    &.q3-9 { fill:rgb(158,202,225); }
+    &.q4-9 { fill:rgb(107,174,214); }
+    &.q5-9 { fill:rgb(66,146,198); }
+    &.q6-9 { fill:rgb(33,113,181); }
+    &.q7-9 { fill:rgb(8,81,156); }
+    &.q8-9 { fill:rgb(8,48,107); }
+
+    &:hover {
+      fill-opacity: 0.5;
+    }
+  }
+
+  .leaflet-container {
+    background: #fff;
+  }
+}
