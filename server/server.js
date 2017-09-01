@@ -39,8 +39,12 @@ if (!isProduction) {
 }
 
 
+app.get('/:type(portfolio)', (req, res) => {
+  res.sendFile(path.join(publicPath, `${req.params.type}.html`), { user: req.user });
+});
+
 app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'), { user: req.user });
+  res.sendFile(path.join(publicPath, 'index2.html'), { user: req.user });
 });
 
 app.use(express.static(publicPath, {

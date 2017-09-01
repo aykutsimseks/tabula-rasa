@@ -13,7 +13,7 @@ import MaterialTheme from './MuiTheme';
 
 const routes = (
   <Route component={App}>
-    <Route path="/(home)" component={TabulaRasa} />
+    <Route path="/home" component={TabulaRasa} />
   </Route>
 );
 
