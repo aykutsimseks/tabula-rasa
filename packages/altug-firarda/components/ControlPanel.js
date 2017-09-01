@@ -41,7 +41,7 @@ export default class ControlPanel extends Component {
   };
 
   render() {
-    const { country, instagram_image_id, start_date, end_date, locale, summary } = this.props;
+    const { index, country, instagram_image_id, start_date, end_date, locale, summary, updateState } = this.props;
     const props = this.props;
 
     return (
@@ -83,6 +83,7 @@ export default class ControlPanel extends Component {
           <BottomNavigation>
             <BottomNavigationItem
               className="bottom-navigation-item"
+              onTouchTap={() => updateState(index - 1)}
               icon={<BackIcon />}
             />
             <BottomNavigationItem
@@ -93,6 +94,7 @@ export default class ControlPanel extends Component {
             { aboutModal(this.state.modalState, this.toggleAboutModal) }
             <BottomNavigationItem
               className="bottom-navigation-item"
+              onTouchTap={() => updateState(index + 1)}
               icon={<ForwardIcon />}
             />
           </BottomNavigation>

@@ -85,7 +85,7 @@ export default class AltugFirarda extends Component {
 
     return (
       <div className="altug-firarda">
-        <ControlPanel index={index} locale={locale} {...current} />
+        <ControlPanel index={index} locale={locale} updateState={this.updateState} {...current} />
         <TripMap index={index} current={current} trip={trip} colorMap={this.colorMap} />
         <Legend colorMap={this.colorMap} current={current} locale={locale} updateState={this.updateState} />
         <LanguageSwitcher current={locale} onClick={this.changeLocale} />
