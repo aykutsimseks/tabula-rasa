@@ -71,7 +71,7 @@ const config = base.merge({
       minRatio: 0.8,
     }),
 
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
 
 });
