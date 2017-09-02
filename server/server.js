@@ -7,22 +7,12 @@ const proxy = httpProxy.createProxyServer();
 const app = express();
 const compression = require('compression');
 
-const passport = require('../packages/middleware/auth/passport');
-
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const flash = require('connect-flash');
-
 // Load Env Variables
 require('../config.js');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 3000;
 const publicPath = path.resolve(__dirname, '..', 'public');
-
-const api = require('../packages/api');
-const authRoutes = require('../packages/middleware/auth/routes');
 
 app.use(compression());
 
@@ -48,26 +38,6 @@ if (!isProduction) {
   });
 }
 
-// Passport
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.use(cookieParser());
-app.use(session({
-  secret: process.env.SECRET_KEY,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: 1200000 },
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
-// Auth routes
-app.use('/auth(/v0)?', authRoutes);
-
-// Import API Routes
-app.use('/api(/v0)?', api);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'), { user: req.user });

@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux-immutable';
 
-import user from './reducers/userReducer';
-import tabularasa from './tabularasa/reducers';
+import tabularasa from './tabula-rasa/reducers';
 
-export default combineReducers({ user, tabularasa });
+export default combineReducers({ tabularasa });
