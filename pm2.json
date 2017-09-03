@@ -2,8 +2,9 @@
   "apps": [
     {
       "name"             : "tabula-rasa",
-      "cwd"              : "/home/ubuntu/tabula-rasa/server",
-      "script"           : "server.js",
+      "cwd"              : "/Users/aykutsimsek/Dropbox/Work/tabula-rasa",
+      // "cwd"              : "/home/ubuntu/tabula-rasa",
+      "script"           : "./server/server.js",
       "log_date_format"  : "YYYY-MM-DD HH:mm Z",
       "error_file"       : "~/.pm2/logs/aykut-simsek/error.log",
       "out_file"         : "~/.pm2/logs/aykut-simsek/out.log",
