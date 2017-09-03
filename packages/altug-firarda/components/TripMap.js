@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import L from 'leaflet';
 import { Map, TileLayer, Polyline, Marker, CircleMarker, ZoomControl } from 'react-leaflet';
 
-import LocationIcon from '@public/static/img/location.png';
+import LocationIcon from '@public/img/location.png';
 import { getPositions, colorDict, generateMarkers } from '../utils/map_utils';
 
-require('@public/static/js/leaflet.awesome-markers.js');
-require('@styles/vendor/font-awesome/css/font-awesome.css');
+require('@public/vendor/leaflet.awesome-markers.js');
 require('../styles/leaflet.css');
 
 const markerIcon = L.icon({

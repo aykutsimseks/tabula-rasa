@@ -36,10 +36,10 @@ const defaults = {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: 'file-loader?name=assets/img/[name].[ext]',
       },
-      {
-        test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/i,
-        loader: 'url-loader?limit=1&name=[name].[ext]',
-      },
+      // {
+      //   test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/i,
+      //   loader: 'url-loader?limit=1&name=[name].[ext]',
+      // },
       {
         test: /\.json$/i,
         loader: 'json-loader',
@@ -50,7 +50,6 @@ const defaults = {
   resolve: {
     alias: {
       '@root': path.resolve(__dirname, '..'),
-      '@styles': path.resolve(__dirname, '../styles'),
       '@public': path.resolve(__dirname, '../public'),
       '@packages': path.resolve(__dirname, '../packages'),
       '@db': path.resolve(__dirname, '../db'),
@@ -59,6 +58,7 @@ const defaults = {
       react: path.resolve(__dirname, '../node_modules/react'),
       'react-dom': path.resolve(__dirname, '../node_modules/react-dom'),
       lodash: path.resolve(__dirname, '../node_modules/lodash'),
+      leaflet: path.resolve(__dirname, '../public/vendor/leaflet/leaflet-src.js'),
     },
   },
 };

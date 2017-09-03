@@ -1,7 +1,7 @@
 const fs = require('fs');
 const request = require('request');
 const cachedRequest = require('cached-request')(request);
-require('../../../config.js');
+require('../../config.js');
 
 /*  Cache Config */
 const cacheDirectory = './data/cache/omdb';

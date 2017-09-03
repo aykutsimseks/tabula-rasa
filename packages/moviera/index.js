@@ -10,7 +10,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import IconButton from 'material-ui/IconButton';
 import AppBar from 'material-ui/AppBar';
 import Settings from 'material-ui/svg-icons/content/filter-list';
-import MovieraLogo from '@public/static/img/moviera_logo.png';
+import MovieraLogo from '@public/img/moviera_logo.png';
 
 import { onPageScroll } from '@packages/utils';
 import { runElasticQuery } from './utils/elasticsearch_utils';

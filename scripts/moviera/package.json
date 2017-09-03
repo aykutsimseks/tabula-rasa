@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cached-request": "^1.1.0",
+    "cached-request": "^1.1.2",
     "cheerio": "^0.22.0",
     "lodash": "^4.17.4",
     "moment": "^2.17.1",

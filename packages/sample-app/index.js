@@ -40,7 +40,7 @@ import ControlPanel from './components/ControlPanel';
             <br />
 */
 
-class TabulaRasa extends Component {
+class SampleApp extends Component {
   render() {
     const { counter, increment } = this.props;
 
@@ -76,4 +76,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(TabulaRasa);
+)(SampleApp);

@@ -14,13 +14,17 @@
     "prod": "NODE_ENV=production PORT=3000 node ./server/server.js",
     "build:webpack": "NODE_ENV=production webpack --progress --config webpack/prod.webpack.config.js",
     "build": "npm run clean && npm run build:webpack",
-    "tableflip": "rm -rf public/build && rm -rf node_modules"
+    "tableflip": "rm -rf public/build && rm -rf node_modules && rm -rf packages/*/node_modules && rm -rf scripts/*/node_modules",
+    "install:all": "npm install && npm install packages/*/ && npm install scripts/*/",
+    "install:server": "npm install webpack express http-proxy compression dotenv"
   },
   "author": "Aykut Simsek",
   "license": "MIT",
   "keywords": [],
   "dependencies": {
+    "altug-firarda": "file:packages/altug-firarda",
     "axios": "0.15.3",
+    "base": "file:packages/base",
     "bcryptjs": "^2.3.0",
     "bluebird": "3.5.0",
     "body-parser": "^1.17.2",
@@ -28,6 +32,7 @@
     "compression": "1.6.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
+    "db-scripts": "file:scripts/db",
     "dotenv": "4.0.0",
     "express-session": "^1.15.3",
     "immutable": "3.8.1",
@@ -35,6 +40,8 @@
     "lodash": "4.17.4",
     "material-ui": "0.16.7",
     "moment": "2.17.1",
+    "moviera": "file:packages/moviera",
+    "moviera-scripts": "file:scripts/moviera",
     "passport": "0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth2": "^0.1.6",
@@ -50,7 +57,8 @@
     "react-tap-event-plugin": "2.0.1",
     "redux": "3.6.0",
     "redux-actions": "2.0.1",
-    "redux-immutable": "4.0.0"
+    "redux-immutable": "4.0.0",
+    "sample-app": "file:packages/sample-app"
   },
   "devDependencies": {
     "babel-core": "6.21.0",

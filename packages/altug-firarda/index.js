@@ -7,7 +7,7 @@ import TripMap from './components/TripMap';
 import Legend from './components/Legend';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
-import trip from '@public/static/data/altug-firarda.json';
+import trip from '@public/data/altug-firarda.json';
 import { colorDict } from './utils/map_utils';
 
 require('./styles/main.scss');
