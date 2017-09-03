@@ -49,9 +49,10 @@ const defaults = {
 
   resolve: {
     alias: {
+      '@root': path.resolve(__dirname, '..'),
       '@styles': path.resolve(__dirname, '../styles'),
       '@public': path.resolve(__dirname, '../public'),
-      '@core': path.resolve(__dirname, '../packages/core'),
+      '@packages': path.resolve(__dirname, '../packages'),
       '@db': path.resolve(__dirname, '../db'),
       '@server': path.resolve(__dirname, '../server'),
       'babel-runtime': path.resolve(__dirname, '../node_modules/babel-runtime'),

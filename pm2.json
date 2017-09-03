@@ -1,13 +1,13 @@
 {
   "apps": [
     {
-      "name"             : "preformance",
-      "cwd"              : "/home/ubuntu/performance-dashboards",
+      "name"             : "tabula-rasa",
+      "cwd"              : "/home/ubuntu/tabula-rasa/server",
       "script"           : "server.js",
       "log_date_format"  : "YYYY-MM-DD HH:mm Z",
-      "error_file"       : "~/.pm2/logs/preformance/error.log",
-      "out_file"         : "~/.pm2/logs/preformance/out.log",
-      "pid_file"         : "~/.pm2/pids/preformance.pid",
+      "error_file"       : "~/.pm2/logs/aykut-simsek/error.log",
+      "out_file"         : "~/.pm2/logs/aykut-simsek/out.log",
+      "pid_file"         : "~/.pm2/pids/aykut-simsek.pid",
       "instances"        : 3,
       "min_uptime"       : "200s",
       "max_restarts"     : 10,
@@ -27,5 +27,3 @@
 
   ]
 }
-
-

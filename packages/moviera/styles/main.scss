@@ -1,0 +1,201 @@
+.moviera {
+	$theme: #DE5E60;
+	$theme-alt: #ff5E60;
+	$theme-text: #444; // rgb(170, 170, 170);
+	$font-family: Roboto, sans-serif;
+	$panel-width: 340px;
+  $bg-color: #eee;
+
+	margin: 0;
+  // padding-top: 63px;
+	min-height: 100vh;
+	min-width: 100%;
+  font-family: $font-family;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  background: $bg-color;
+  color: $theme-text;
+  font-size: 12px;
+
+  .header {
+    width: $panel-width !important;
+    position: fixed !important;
+    background-color: $bg-color !important;
+    box-shadow: none !important;
+    top: 0px;
+    padding: 5px 20px 0!important;
+  }
+
+  .logoContainer {
+    text-align: left;
+
+    .logo {
+      height: 60px;
+    }
+  }
+
+  .control-panel {
+    width: $panel-width;
+    height: 100%;
+    position: fixed;
+    background: $bg-color;
+    top: 65px;
+
+    .row {
+      margin: 30px 0;
+    }
+
+    .label {
+      color: $theme-text;
+      vertical-align: 4px;
+    }
+
+    .header-bar {
+      position: relative;
+      background-color: $theme;
+      color: $theme-text;
+      height: 50px;
+      padding: 10px 10px;
+    }
+
+    .main-content {
+      padding: 0 30px 20px 20px;
+    }
+  }
+
+  .results {
+    position: absolute;
+    left: $panel-width;
+    width: calc(100% - 340px);
+    background: $bg-color;
+
+    .circular-loader {
+      width: 100% !important;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .movie-item {
+      padding: 15px 0px;
+      margin-left: 15px;
+      float: left;
+      width: calc(100% - 30px);
+      border-top: 1px solid #ccc;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      .poster {
+        float: left;
+        padding-right: 20px;
+        width: 110px;
+        cursor: pointer;
+
+        img {
+          height: 140px;
+          width: 100px;
+        }
+      }
+
+      .details {
+        width: calc(100% - 120px);
+        float: left;
+
+        a {
+          text-decoration: none;
+        }
+
+        .title {
+          font-size: 20px;
+          font-weight: 600;
+          color: #333;
+          cursor: pointer;
+
+          &:hover {
+            color: #666;
+          }
+        }
+
+        .label {
+          font-weight: 600;
+        }
+
+        .text {
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+
+        .rating-box {
+          padding: 10px 0;
+          font-size: 20px;
+          min-height: 50px;
+          line-height: 14px;
+          text-align: center;
+
+          .small {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .toggleButton {
+    display: none !important;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 35px;
+    color: #555;
+    padding: 10px 0 10px calc(50% - 80px);
+    font-size: 11px;
+    font-weight: 300;
+
+    a {
+      color: #333;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .moviera {
+    &.hideControls {
+      .control-panel {
+        width: 0;
+        overflow: hidden;
+      }
+    }
+
+    .control-panel {
+      width: 100%;
+      z-index: 300;
+      transition: width 0.3s ease;
+
+      .header {
+        width: 100% !important
+      }
+    }
+
+    .toggleButton {
+      display: block !important;
+    }
+
+    .results {
+      left: 0;
+      width: 100%;
+      margin-top: 68px;
+    }
+
+    .header {
+      width: 100% !important;
+
+      .logoContainer {
+        text-align: left;
+      }
+    }
+  }
+}
