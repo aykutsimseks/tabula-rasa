@@ -55,7 +55,7 @@ export default class ControlPanel extends Component {
             </Tabs>
           </div>
 
-          {/*
+          {
           <div className="row">
             <span className="label">Select</span>
             <Tabs
@@ -68,7 +68,7 @@ export default class ControlPanel extends Component {
             </Tabs>
           </div>
 
-          */}
+          }
 
           <div className="row" style={{ marginTop: -20 }} >
             <AutoComplete

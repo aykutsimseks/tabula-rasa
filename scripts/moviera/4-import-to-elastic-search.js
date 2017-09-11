@@ -6,6 +6,7 @@ const utils = require('./utils.js');
 
 const movies = require('./data/omdb.js');
 
+const netflix = require('./data/netflix.js');
 
 const args = process.argv.slice(2);
 
@@ -42,6 +43,13 @@ const __guardMethod__ = (obj, methodName, transform) => {
 const processedMovies = movies.map((movie) => {
   const years = getYears(movie.Year);
   const poster = movie.Poster;
+  const platform = [];
+  const netflixJson = _.find(netflix, { show_title: movie.Title });
+
+  if (netflixJson) {
+    platform.push('netflix');
+  }
+
   return compact({
     title: movie.Title,
     year: years.year,
@@ -61,9 +69,11 @@ const processedMovies = movies.map((movie) => {
     metaScore: notNA(movie.Metascore) ? Number(movie.Metascore) : undefined,
     imdbRating: Number(movie.imdbRating),
     imdbVotes: utils.toNumber(movie.imdbVotes),
+    netflixRating: Number(_.get(netflixJson, 'rating', null)),
     tomatoRating: Number(movie.tomatoRating),
     imdbId: movie.imdbID,
     type: _.capitalize(movie.Type),
+    platform: platform,
     suggest: {
       input: __guardMethod__(movie.Title, 'split', o => o.split(' ')) || [],
       output: movie.Title,
@@ -106,6 +116,7 @@ const getMultiFieldDef = (name) => {
   def.fields[name] = { type: 'string', index: 'analyzed' };
   return def;
 };
+
 const settings = {
   analysis: {
     char_filter: {
@@ -144,6 +155,7 @@ const settings = {
     },
   },
 };
+
 const mapping = {
   index: 'movies',
   type: 'movie',
@@ -161,10 +173,12 @@ const mapping = {
         metaScore: { type: 'integer' },
         imdbRating: { type: 'float' },
         imdbVotes: { type: 'integer' },
+        netflixRating: { type: 'integer' },
         writers: getMultiFieldDef('writers'),
         directors: getMultiFieldDef('directors'),
         actors: getMultiFieldDef('actors'),
         type: getMultiFieldDef('type'),
+        platform: getMultiFieldDef('platform'),
         suggest: {
           type: 'completion',
           store: true,

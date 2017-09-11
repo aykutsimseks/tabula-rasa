@@ -25,10 +25,20 @@ const splitComma = (str) => {
 
 const splitWriter = str => _.uniq(_.map(splitComma(str), writer => writer.replace(/\s\(.+\)/, '')));
 
+const splitTitleYear = str => {
+  const parts = str.split('(');
+
+  return {
+    title: (parts.slice(0, -1).join('(')).trim(),
+    year: (parts.slice(-1).join('').replace(/\)$/, '')).trim()
+  };
+};
+
 module.exports = {
   jsonToString,
   syncExecArray,
   toNumber,
   splitComma,
   splitWriter,
+  splitTitleYear,
 };

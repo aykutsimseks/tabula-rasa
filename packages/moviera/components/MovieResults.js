@@ -15,7 +15,7 @@ const MovieItem = (props) => {
     directors,
     metaScore,
     tomatoRating,
-    netflixScore,
+    netflixRating,
   } = props;
   const url = `http://www.imdb.com/title/${imdbId}`;
   return (
@@ -58,9 +58,9 @@ const MovieItem = (props) => {
             }
           </div>
           <div className="col-md-3 col-sm-3 col-xs-6 col-xxs-12 rating-box">
-            { !isNaN(netflixScore) &&
+            { !isNaN(netflixRating) &&
               <span>
-                {imdbRating}<span className="small">/5</span>
+                {netflixRating}<span className="small">/5</span>
                 <div className="small">Netflix</div>
               </span>
             }
@@ -85,11 +85,10 @@ const MovieItem = (props) => {
 export default class MovieResults extends Component {
   render() {
     const { movies } = this.props;
+
     return (
       <div>
-        {
-          movies.map(m => <MovieItem key={m._id} {...m._source} />)
-        }
+        { movies.map(m => <MovieItem key={m._id} {...m._source} />) }
       </div>
     );
   }
