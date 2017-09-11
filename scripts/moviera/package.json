@@ -4,7 +4,7 @@
   "description": "Offline Scripts for Moviera Project",
   "main": "index.js",
   "scripts": {
-    "update": "node 1-imdb-coming-soon-scraper.js; node 1-2-imdb-top-movies.js; node 2-omdb-scraper.js; node 3-netflix-update; node 4-import-to-elastic-search; mv data/elasticdump.json data/elasticdump.bk; npm run elastic:export",
+    "update": "node 1-imdb-coming-soon-scraper.js; node 1-2-imdb-top-movies.js; node 2-omdb-scraper.js; node 3-netflix-update; node 4-import-to-elastic-search; mv data/elasticdump.json data/elasticdump.bk.json; npm run elastic:export",
     "elastic:import": "elasticdump --input=data/elasticdump.json --output=http://localhost:9200/movies --type=data",
     "elastic:export": "elasticdump --input=http://localhost:9200/movies --output=data/elasticdump.json --type=data",
     "test": "echo \"Error: no test specified\" && exit 1"

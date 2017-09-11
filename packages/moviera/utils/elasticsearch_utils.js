@@ -2,9 +2,18 @@ import { Client } from 'elasticsearch';
 
 const numResults = 15;
 
+let elasticPort = '';
+
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  elasticPort = ':9200';
+} else {
+  elasticPort = '/search';
+}
+
 const client = new Client({
   // host: `${window.location.protocol}//${window.location.hostname}:9200`,
-  host: `${window.location.protocol}//${window.location.hostname}/elastic`,
+  // host: `${window.location.protocol}//${window.location.hostname}/elastic`,
+  host: `${window.location.protocol}//${window.location.hostname}${elasticPort}`,
   // log: 'trace',
 });
 
