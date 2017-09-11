@@ -10,7 +10,7 @@ const urlBase = 'http://www.imdb.com/movies-coming-soon/';
 
 /*  Cache Config */
 const cacheDirectory = './data/cache/imdb-coming-soon';
-const cacheTime = 0; // 3 seconds;
+const cacheTime = 30000000000000 * 1000; // 3 seconds;
 cachedRequest.setCacheDirectory(cacheDirectory);
 /* * * * * * * * */
 
