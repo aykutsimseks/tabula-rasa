@@ -6,7 +6,7 @@ import LocationIcon from '@public/img/location.png';
 import { getPositions, colorDict, generateMarkers } from '../utils/map_utils';
 
 require('@public/vendor/leaflet.awesome-markers.js');
-require('../styles/leaflet.css');
+require('../static/styles/leaflet.css');
 
 const markerIcon = L.icon({
   iconUrl: LocationIcon,

@@ -68,7 +68,7 @@
 
 			.instagram-embed {
         height: 400px;
-        background: url('../../../public/img/loading.gif') center center no-repeat;
+        background: url('../../../../public/img/loading.gif') center center no-repeat;
         background-size: 200px 150px;
 			}
 
@@ -133,7 +133,7 @@
 		  height: 100vh;
 		  width: calc( 100vw - 320px);
 		  z-index: 400;
-  		background: url('../../../public/img/cover.png') no-repeat center center fixed;
+  		background: url('../../../../public/img/cover.png') no-repeat center center fixed;
     	background-position: calc(50% + 170px) 50% ;
     	background-size: cover;
   		opacity: .8;

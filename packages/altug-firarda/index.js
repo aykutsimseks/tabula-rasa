@@ -10,7 +10,7 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 import trip from '@public/data/altug-firarda.json';
 import { colorDict } from './utils/map_utils';
 
-require('./styles/main.scss');
+require('./static/styles/main.scss');
 
 each(trip, ((p, i) => { p.departed_by = get(trip, [i + 1, 'arrived_by']); }));
 
