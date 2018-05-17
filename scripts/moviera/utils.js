@@ -19,7 +19,7 @@ const toNumber = (str) => {
 };
 
 const splitComma = (str) => {
-  if (str === 'N/A') { return []; }
+  if (!str || str === 'N/A') { return []; }
   return str.split(/,\s*/g);
 };
 

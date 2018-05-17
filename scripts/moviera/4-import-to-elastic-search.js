@@ -6,7 +6,7 @@ const utils = require('./utils.js');
 
 const movies = require('./data/omdb.js');
 
-const netflix = require('./data/netflix.js');
+const netflix = null; // require('./data/netflix.js');
 
 const args = process.argv.slice(2);
 
@@ -17,7 +17,7 @@ const client = new elasticsearch.Client({
 const notNA = str => str !== 'N/A';
 
 const getYears = (str) => {
-  if (str === 'N/A') { return {}; }
+  if (!str || str === 'N/A') { return {}; }
   const tokens = str.split('–');
   return {
     year: utils.toNumber(tokens[0]),
