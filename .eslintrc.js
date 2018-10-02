@@ -1,4 +1,6 @@
-{
+var path = require('path');
+
+module.exports = {
   "extends": "eslint-config-airbnb",
   "ecmaFeatures": {
     "jsx": true,
@@ -28,8 +30,7 @@
   "settings": {
     "import/resolver": {
       "eslint-import-resolver-webpack": {
-        "config": "webpack.config.js"
-      }
+        "config": path.resolve("./webpack.config.js")      }
     }
   }
 }

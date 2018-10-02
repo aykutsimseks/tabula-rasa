@@ -82,7 +82,7 @@ $(document).ready(function () {
             var $div = $(this);
             var img = document.createElement('img');
             var img_name = $div.attr("data-img-name");
-            img.src = "/static/assets/img/menu/" + img_name + ".gif?t=" + new Date().getTime();
+            img.src = "/homepage/assets/img/menu/" + img_name + ".gif?t=" + new Date().getTime();
             console.log(img_name)
             $(img).load(function () {
                 $div.attr("src", img.src);
@@ -91,7 +91,7 @@ $(document).ready(function () {
         mouseleave: function () {
             var $div = $(this);
             var img_name = $div.attr("data-img-name");
-            var src = "/static/assets/img/menu/" + img_name + ".png";
+            var src = "/homepage/assets/img/menu/" + img_name + ".png";
             $div.attr("src", src);
 
         }
