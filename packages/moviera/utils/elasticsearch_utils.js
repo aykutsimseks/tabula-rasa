@@ -7,7 +7,8 @@ let elasticPort = '';
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   elasticPort = ':9200';
 } else {
-  elasticPort = '/search';
+  // elasticPort = '/search';
+  elasticPort = '/elastic';
 }
 
 const client = new Client({
