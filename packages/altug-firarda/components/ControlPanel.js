@@ -69,7 +69,7 @@ export default class ControlPanel extends Component {
                 allowTransparency="true"
                 scrolling="no"
                 width={320}
-                height={400}
+                height={390}
                 frameBorder={0}
                 src={`https://instagram.com/p/${instagram_image_id}/embed/?v=1`}
               />
