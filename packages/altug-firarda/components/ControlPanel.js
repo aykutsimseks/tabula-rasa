@@ -83,18 +83,18 @@ export default class ControlPanel extends Component {
           <BottomNavigation>
             <BottomNavigationItem
               className="bottom-navigation-item"
-              onTouchTap={() => updateState(index - 1)}
+              onClick={() => updateState(index - 1)}
               icon={<BackIcon />}
             />
             <BottomNavigationItem
               className="bottom-navigation-item"
               icon={<InfoIcon style={{ width: 18, margin: 'auto' }} />}
-              onTouchTap={() => { this.toggleAboutModal(true); }}
+              onClick={() => { this.toggleAboutModal(true); }}
             />
             { aboutModal(this.state.modalState, this.toggleAboutModal) }
             <BottomNavigationItem
               className="bottom-navigation-item"
-              onTouchTap={() => updateState(index + 1)}
+              onClick={() => updateState(index + 1)}
               icon={<ForwardIcon />}
             />
           </BottomNavigation>

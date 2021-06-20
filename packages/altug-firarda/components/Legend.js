@@ -14,7 +14,7 @@ export default class Legend extends Component {
             <li
               className={`legend-item ${(current.country === country) ? 'active' : ''} ${current.summary ? 'visible' : ''}`}
               key={country}
-              onTouchTap={() => updateState(obj.min)}
+              onClick={() => updateState(obj.min)}
             >
               { obj.color && <div className="bullet" style={{ background: obj.color }} /> }
               <span className="text">{getLocaleText(obj, 'country', locale)}</span>

@@ -23,7 +23,7 @@ export default class LanguageSwitcher extends Component {
           <li
             key={lan.lan}
             className={`language-item ${current === lan.lan ? 'active' : ''}`}
-            onTouchTap={() => this.props.onClick(lan.lan)}
+            onClick={() => this.props.onClick(lan.lan)}
           >
             <span className="text">{lan.text}</span>
             <span>{lan.abbv}</span>

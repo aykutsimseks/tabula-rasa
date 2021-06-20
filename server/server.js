@@ -61,7 +61,7 @@ app.get('*.js', (req, res, next) => {
 // server will crash. An example of this is connecting to the
 // server when webpack is bundling
 proxy.on('error', () => {
-  console.log('Could not connect to proxy, please try again...');
+  console.log('\n\n!!! Could not connect to proxy, please try again...!!! \n\n');
 });
 
 const onError = (error) => {
@@ -90,6 +90,6 @@ const server = app.listen(port, (err) => {
   }
 
   const address = server.address();
-  console.log('🌎  Listening at http://%s:%s', address.address === '::' ? 'localhost' : address.address, address.port);
+  console.log('\n\n🌎  Listening at http://%s:%s\n\n', address.address === '::' ? 'localhost' : address.address, address.port);
   return 0;
 });

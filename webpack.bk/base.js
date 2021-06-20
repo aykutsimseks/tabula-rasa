@@ -20,21 +20,21 @@ const defaults = {
 
   module: {
     // rules : [ // Webpack 2
-    loaders: [
+    rules: [
       {
         test: /\.js$/i,
-        // loader: 'babel-loader', // Webpack 2
-        loader: 'babel',
+        use: ['babel-loader'], // Webpack 2
+        // loader: 'babel',
         include: path.join(__dirname, '../packages'),
         exclude: /node_modules/,
       },
       {
         test: /\.(css|scss)$/i,
-        loader: 'style-loader!css-loader!sass-loader',
+        use: ['style-loader','css-loader','sass-loader'],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'file-loader?name=assets/img/[name].[ext]',
+        use: ['file-loader?name=assets/img/[name].[ext]'],
       },
       // {
       //   test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/i,
@@ -42,7 +42,7 @@ const defaults = {
       // },
       {
         test: /\.json$/i,
-        loader: 'json-loader',
+        use: ['json-loader'],
       },
     ],
   },

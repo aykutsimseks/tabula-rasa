@@ -9,3 +9,17 @@ export const onPageScroll = (onScrollCallback) => {
     onScrollCallback();
   }
 };
+
+export const groupBy = (list, keyGetter) => {
+  const map = {};
+  list.forEach((item) => {
+    const key = keyGetter(item);
+    const collection = map[key];
+    if (!collection) {
+      map[key] = [item];
+    } else {
+      map[key].push(item);
+    }
+  });
+  return map;
+};

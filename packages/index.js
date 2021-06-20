@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 import { createStore } from 'redux';
 
 import AppRoutes from './routes';
@@ -9,7 +9,7 @@ import AppRoutes from './routes';
 import reducers from './reducers';
 
 
-injectTapEventPlugin();
+// injectTapEventPlugin();
 
 const rootEl = document.getElementById('root');
 

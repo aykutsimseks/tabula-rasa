@@ -1,7 +1,7 @@
 const Webpack = require('webpack');
 const path = require('path');
 const WebpackDevServer = require('webpack-dev-server');
-const webpackConfig = require('./../webpack/webpack.config.js');
+const webpackConfig = require('./../webpack/webpack.dev.js');
 
 module.exports = () => {
   // First we fire up Webpack an pass in the configuration we
@@ -11,15 +11,14 @@ module.exports = () => {
 
   // We give notice in the terminal when it starts bundling and
   // set the time it started
-  compiler.plugin('compile', () => {
-    console.log('Bundling...');
+  compiler.hooks.compile.tap('compile', () => {
     bundleStart = Date.now();
   });
 
   // We also give notice when it is done compiling, including the
   // time it took. Nice to have
-  compiler.plugin('done', () => {
-    console.log(`Bundled in ${(Date.now() - bundleStart) / 1000}s!`);
+  compiler.hooks.done.tap('done', () => {
+    console.log(`\n\nBundled in ${(Date.now() - bundleStart) / 1000}s!\n\n`);
   });
 
   const bundler = new WebpackDevServer(compiler, {
@@ -50,6 +49,6 @@ module.exports = () => {
   // We fire up the development server and give notice in the terminal
   // that we are starting the initial bundle
   bundler.listen(8080, 'localhost', () => {
-    console.log('Bundling project, please wait...');
+    console.log('\n\nBundling project, please wait...\n\n');
   });
 };
