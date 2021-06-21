@@ -44,7 +44,7 @@ app.get('/:type(portfolio)', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index2.html'), { user: req.user });
+  res.sendFile(path.join(publicPath, 'index.template.html'), { user: req.user });
 });
 
 app.use(express.static(publicPath, {

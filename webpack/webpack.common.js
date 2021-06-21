@@ -5,7 +5,7 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: ["@babel/polyfill", "./packages/index.js"],
+  // entry: ["@babel/polyfill", "./packages/index.js"],
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -48,8 +48,12 @@ module.exports = {
         }
       },
       {
-        test: /\.(css|scss)$/i,
-        use: ['style-loader','css-loader','sass-loader'],
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"]
+      },
+      {
+          test: /\.scss$/,
+          use: [ 'style-loader', 'css-loader', 'sass-loader' ]
       },
       {
        test: /\.(ttf|eot|svg|gif|jpg|png|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
