@@ -31,7 +31,7 @@ var movies = [];
 const scrape = (url, n, cb) => {
   const scrapeRules = {
     imdbId: {
-      pattern: "h4[itemprop='name'] a",
+      pattern: "h4 a[title]",
       func: (arr, pageData, $) => {
         arr.map((index, movie) => {
           pageData.push({
@@ -45,7 +45,7 @@ const scrape = (url, n, cb) => {
   };
 
   const callback = (err, data, yearMonth) => {
-    console.log(yearMonth);
+    console.log(`${n}/${urls.length}: ${yearMonth}: ${url}`);
     movies = movies.concat(data);
     cb();
   };
@@ -75,7 +75,10 @@ const scrape = (url, n, cb) => {
 };
 
 const complete = () => {
-  fs.writeFile('./data/imdb-coming-soon.js', utils.jsonToString(movies));
+  console.log('SAVING...');
+  fs.writeFile('./data/imdb-coming-soon.js', utils.jsonToString(movies), function(err, result) {
+    if(err) console.log('error', err);
+  });
 };
 
 utils.syncExecArray(urls, 0, scrape, complete);

@@ -8,30 +8,30 @@ module.exports = merge(common, {
   // Makes sure errors in console map to the correct file
   // and line number
   devtool: 'cheap-module-source-map',
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: "style.[contenthash].css",
-      chunkFilename: '[id].[contenthash].css'
-    }),
-  ],
-  optimization: {
-    moduleIds: "deterministic",
-    runtimeChunk: "single",
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all",
-        },
-      },
-    },
-  },
+  // plugins: [
+  //   new MiniCssExtractPlugin({
+  //     filename: "style.[contenthash].css",
+  //     chunkFilename: '[id].[contenthash].css'
+  //   }),
+  // ],
+  // optimization: {
+  //   moduleIds: "deterministic",
+  //   runtimeChunk: "single",
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       vendor: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: "vendors",
+  //         chunks: "all",
+  //       },
+  //     },
+  //   },
+  // },
   entry: [
     // Our application
     path.resolve(__dirname, '../packages', 'index.js'),
   ],
-  output: {
-    filename: "[name].[contenthash].js",
-  },
+  // output: {
+  //   filename: "[name].[contenthash].js",
+  // },
 });

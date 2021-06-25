@@ -36,6 +36,8 @@ const scrape = (movie, n, cb) => {
 
     cb();
   };
+
+  console.log(getUrl(movieObj))
   // 1. Create the request
   cachedRequest({
     url: getUrl(movieObj),
@@ -50,7 +52,9 @@ const scrape = (movie, n, cb) => {
 };
 
 const complete = () => {
-  fs.writeFile('./data/netflix.js', utils.jsonToString(movies));
+  fs.writeFile('./data/netflix.js', utils.jsonToString(movies), function(err, result) {
+    if(err) console.log('error', err);
+  });
 };
 
 utils.syncExecArray(netflixList, 0, scrape, complete);

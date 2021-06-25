@@ -22,15 +22,18 @@ var movies = [];
 const scrape = (url, n, cb) => {
   const scrapeRules = {
     imdbId: {
-      pattern: 'td.titleColumn a',
+      pattern: 'td.titleColumn',
       func: (arr, pageData, $) => {
         arr.map((index, movie) => {
+          const linkElem = $(movie.children[0].next);
+          const year = $(movie.children[2].next).text().replace(/\D*/g,'');
           pageData.push({
-            title: $(movie).text()
+            title: linkElem.text()
               .trim()
               .replace(/^\d+/g, '')
               .replace(/\s+/, ' '),
-            imdbID: $(movie).prop('href').split('/')[2],
+            imdbID: linkElem.prop('href').split('/')[2],
+            year: year,
           });
           return 0;
         });
@@ -39,6 +42,7 @@ const scrape = (url, n, cb) => {
   };
 
   const callback = (err, data) => {
+    console.log(`${n}/${urls.length}: ${url}`);
     movies = movies.concat(data);
     cb();
   };
@@ -68,7 +72,10 @@ const scrape = (url, n, cb) => {
 };
 
 const complete = () => {
-  fs.writeFile('./data/imdb-top-movies.js', utils.jsonToString(movies));
+  console.log('SAVING...');
+  fs.writeFile('./data/imdb-top-movies.js', utils.jsonToString(movies), function(err, result) {
+    if(err) console.log('error', err);
+  });
 };
 
 utils.syncExecArray(urls, 0, scrape, complete);

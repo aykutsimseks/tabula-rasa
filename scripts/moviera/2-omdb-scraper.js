@@ -25,18 +25,20 @@ const scrape = (movie, n, cb) => {
   const getUrl = m => `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${m.imdbID}&tomatoes=true`;
 
   const callback = (err, response, cur) => {
-    console.log(`${cur + 1}/${imdbList.length}`);
+    console.log(`${cur + 1}/${imdbList.length}: ${getUrl(movie)}`);
     if (response) {
       movies = movies.concat(JSON.parse(response));
     }
     cb();
   };
+  
   // 1. Create the request
   cachedRequest({
     url: getUrl(movie),
     ttl: cacheTime,
     timeout: 1000,
   }, (err, response, body) => {
+    // console.log(getUrl(movie))
     if (err) { return callback(err, '', n); }
     // Send the data in the callback
     callback(null, body, n);
@@ -45,7 +47,10 @@ const scrape = (movie, n, cb) => {
 };
 
 const complete = () => {
-  fs.writeFile('./data/omdb.js', utils.jsonToString(movies));
+  console.log('SAVING...');
+  fs.writeFile('./data/omdb.js', utils.jsonToString(movies), function(err, result) {
+    if(err) console.log('error', err);
+  });
 };
 
-utils.syncExecArray(imdbList, 0, scrape, complete);
+utils.syncExecArray(imdbList.filter(Boolean), 0, scrape, complete);
