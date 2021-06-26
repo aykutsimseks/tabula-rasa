@@ -9,8 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "highcharts": "^6.2.0",
-    "react": "^16.6.3",
-    "react-highcharts": "^16.0.2"
+    "highcharts": "^9.1.2",
+    "query-string": "^7.0.1",
+    "react": "^17.0.2",
+    "react-highcharts": "^16.1.0"
   }
 }

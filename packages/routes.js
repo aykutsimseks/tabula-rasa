@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route } from 'react-router';
 
 import { Provider } from 'react-redux';
 
@@ -22,13 +22,12 @@ const routes = (
     <Route path="/raspa" component={Raspa} />
   </Route>
 );
-
 export default class AppRoutes extends Component {
   render() {
     return (
       <Provider store={this.props.store}>
         <MuiThemeProvider muiTheme={getMuiTheme(MaterialTheme)}>
-          <Router history={browserHistory} key={Math.random()}>
+          <Router history={this.props.history} key={Math.random()}>
             { routes }
           </Router>
         </MuiThemeProvider>

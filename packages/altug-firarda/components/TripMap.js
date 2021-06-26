@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import L from 'leaflet';
-import { Map, TileLayer, Polyline, Marker, CircleMarker, ZoomControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Polyline, Marker, CircleMarker, ZoomControl } from 'react-leaflet';
 
 import LocationIcon from '@public/img/location.png';
 import { getPositions, colorDict, generateMarkers } from '../utils/map_utils';
@@ -41,7 +41,7 @@ export default class TripMap extends Component {
 
     return (
       <div className="map-panel">
-        <Map center={center} zoom={Number(current.zoom)} zoomControl={false} dragging scroolWheelZoom animate>
+        <MapContainer center={center} zoom={Number(current.zoom)} zoomControl={false} dragging scroolWheelZoom animate>
           <TileLayer
             url="http://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
@@ -75,7 +75,7 @@ export default class TripMap extends Component {
             })
           }
           <ZoomControl position="bottomright" />
-        </Map>
+        </MapContainer>
         <div className="cover" />
       </div>
     );
