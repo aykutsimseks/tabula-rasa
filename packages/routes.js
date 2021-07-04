@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 
@@ -27,9 +27,9 @@ export default class AppRoutes extends Component {
     return (
       <Provider store={this.props.store}>
         <MuiThemeProvider muiTheme={getMuiTheme(MaterialTheme)}>
-          <BrowserRouter history={this.props.history} key={Math.random()}>
+          <Router history={this.props.history} key={Math.random()}>
             { routes }
-          </BrowserRouter>
+          </Router>
         </MuiThemeProvider>
       </Provider>
     );
