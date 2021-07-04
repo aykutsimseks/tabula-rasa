@@ -19,7 +19,9 @@ export default class AltugFirarda extends Component {
   constructor(props) {
     super(props);
 
-    const index = Number(this.props.params.pageId - 1) || 0;
+    const { match: { params } } = this.props;
+
+    const index = Number(params?.pageId - 1) || 0;
 
     this.colorMap = colorDict(trip);
 

@@ -8,7 +8,8 @@ module.exports = merge(common, {
   mode: "development",
   // Makes sure errors in console map to the correct file
   // and line number
-  devtool: 'eval',
+  // devtool: 'eval',
+  devtool: "source-map",
 
   entry: [
     'react-hot-loader/patch',
@@ -36,4 +37,9 @@ module.exports = merge(common, {
     //   minRatio: 0.8,
     // }),
   ],
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  }
 });

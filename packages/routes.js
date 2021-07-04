@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route } from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 
@@ -14,22 +14,22 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MaterialTheme from './base/MuiTheme';
 
 const routes = (
-  <Route component={App}>
+  <App>
     <Route path="/home" component={SampleApp} />
-    <Route path="/altug-firarda" component={AltugFirarda} />
     <Route path="/altug-firarda/:pageId" component={AltugFirarda} />
+    <Route path="/altug-firarda" component={AltugFirarda} />
     <Route path="/moviera" component={Moviera} />
     <Route path="/raspa" component={Raspa} />
-  </Route>
+  </App>
 );
 export default class AppRoutes extends Component {
   render() {
     return (
       <Provider store={this.props.store}>
         <MuiThemeProvider muiTheme={getMuiTheme(MaterialTheme)}>
-          <Router history={this.props.history} key={Math.random()}>
+          <BrowserRouter history={this.props.history} key={Math.random()}>
             { routes }
-          </Router>
+          </BrowserRouter>
         </MuiThemeProvider>
       </Provider>
     );
