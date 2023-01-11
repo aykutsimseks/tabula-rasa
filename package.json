@@ -44,7 +44,7 @@
     "file-loader": "^6.2.0",
     "http-proxy": "^1.18.1",
     "immutable": "^3.8.2",
-    "knex": "^0.95.6",
+    "knex": "^2.4.0",
     "lodash": "^4.17.21",
     "material-ui": "^0.20.0",
     "moment": "^2.29.1",
